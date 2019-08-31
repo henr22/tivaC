@@ -23,5 +23,4 @@ int main(void)
                 GPIO_PORTF_DATA_R ^= (1 << 2); //turn on red led
             }
     }
-	return 0;
 }
