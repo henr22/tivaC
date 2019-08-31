@@ -7,6 +7,8 @@
 #include "inc/tm4c1230h6pm.h"
 #include "led.h"
 
+//Configurar timer
+
 int main(void)
 {
     configureLED(BLUE);
