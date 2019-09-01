@@ -35,6 +35,7 @@ int main(void)
 
     while(1)
     {
+
             if (TIMER0_RIS_R & 0x00000001 == 1)
             {
                 TIMER0_ICR_R |= (1 << 0);
@@ -48,8 +49,7 @@ int main(void)
                     GPIO_PORTF_DATA_R &= ~(1 << 2);
                 }
                 //GPIO_PORTF_DATA_R ^= (1 << 2); //turn on red led
-                //printString("Ola\n\r");
-                //UARTCharPut(UART0_BASE, "!");
+
              }
     }
 }
@@ -60,4 +60,6 @@ void setup(void)
     configureTimer();
     configureAdc();
     configureUart();
+
+    NVIC_EN1_R |= (1 << 19); //Enable Interrupts
 }

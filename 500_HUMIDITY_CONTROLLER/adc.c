@@ -68,5 +68,5 @@ void configureAdc(void)
 
         ADC1_ISC_R = (1 << 3); //Clears the interrupt flag
 
-        NVIC_EN1_R |= (1 << 19);
+        //NVIC_EN1_R |= (1 << 19);
 }
