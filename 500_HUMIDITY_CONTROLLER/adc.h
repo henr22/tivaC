@@ -13,6 +13,7 @@
 #define MAX32   0xFFFFFFFF
 #define ZERO32  0x00000000
 
+extern void configureAdc(void);
 
 
 #endif /* ADC_H_ */
