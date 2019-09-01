@@ -25,8 +25,10 @@ volatile uint32_t adcResult = 0;
 
 void ADCSS3_Handler(void)
 {
+
     adcResult = ADC1_SSFIFO3_R;
     ADC1_ISC_R = (1 << 3);
+
 }
 
 int main(void)
@@ -36,21 +38,26 @@ int main(void)
     while(1)
     {
 
-            if (TIMER0_RIS_R & 0x00000001 == 1)
+        adcResult = ADC1_SSFIFO3_R;
+
+        if (TIMER0_RIS_R & 0x00000001 == 1)
+        {
+            adcResult = ADC1_SSFIFO3_R;
+
+            TIMER0_ICR_R |= (1 << 0);
+
+            if(adcResult > 1500)
             {
-                TIMER0_ICR_R |= (1 << 0);
+                GPIO_PORTF_DATA_R |= (1 << 2);
+            }
+            else
+            {
+                GPIO_PORTF_DATA_R &= ~(1 << 2);
+            }
 
-                if(adcResult > 1500)
-                {
-                    GPIO_PORTF_DATA_R |= (1 << 2);
-                }
-                else
-                {
-                    GPIO_PORTF_DATA_R &= ~(1 << 2);
-                }
-                //GPIO_PORTF_DATA_R ^= (1 << 2); //turn on red led
+            printString("Ola!");
 
-             }
+         }
     }
 }
 
@@ -61,5 +68,5 @@ void setup(void)
     configureAdc();
     configureUart();
 
-    NVIC_EN1_R |= (1 << 19); //Enable Interrupts
+    //NVIC_EN1_R |= (1 << 19); //Enable Interrupts
 }

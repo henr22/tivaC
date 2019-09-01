@@ -46,7 +46,9 @@ void configureAdc(void)
         ADC1_ACTSS_R &= ~(1 << 3); //sequencer 3 because we only want one sampler
 
         //2. Configure the trigger event for the sample sequencer in the ADCEMUX register.
-        ADC1_EMUX_R = (0xF << 12);
+        //ADC1_EMUX_R = (0xF << 12);
+        ADC1_EMUX_R = (0x5 << 12); //to use the timer
+
 
         //3. When using a PWM generator as the trigger source, use the ADC Trigger Source Select
     //(ADCTSSEL) register to specify in which PWM module the generator is located. The default
@@ -68,5 +70,5 @@ void configureAdc(void)
 
         ADC1_ISC_R = (1 << 3); //Clears the interrupt flag
 
-        //NVIC_EN1_R |= (1 << 19);
+        //NVIC_EN1_R |= (1 << 19); //will be done after all configurations
 }
