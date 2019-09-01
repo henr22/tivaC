@@ -7,6 +7,7 @@
 #include "inc/tm4c1230h6pm.h"
 #include "led.h"
 #include "timer.h"
+#include "adc.h"
 
 void setup(void);
 
@@ -28,9 +29,7 @@ int main(void)
            {
                 TIMER0_ICR_R |= (1 << 0);
 
-                if (ADC1_SSFSTAT3_R & (1<<12))
-                    adcResult = ADC1_SSFIFO3_R;
-                if(ADC1_SSFIFO3_R > 1500)
+                if(adcResult > 1500)
                 {
                     GPIO_PORTF_DATA_R |= (1 << 2);
                 }
@@ -47,4 +46,5 @@ void setup(void)
 {
     configureLED(BLUE);
     configureTimer();
+    configureAdc();
 }
