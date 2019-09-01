@@ -23,8 +23,6 @@
 //*****************************************************************************
 
 #include <stdint.h>
-#include "inc/hw_nvic.h"
-#include "inc/hw_types.h"
 
 //*****************************************************************************
 //
@@ -57,7 +55,7 @@ extern uint32_t __STACK_TOP;
 //
 //*****************************************************************************
 // To be added by user
-extern void ADCSS3_Handler(void);
+
 
 //*****************************************************************************
 //
@@ -137,7 +135,7 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // ADC1 Sequence 0
     IntDefaultHandler,                      // ADC1 Sequence 1
     IntDefaultHandler,                      // ADC1 Sequence 2
-    ADCSS3_Handler,                      // ADC1 Sequence 3
+    IntDefaultHandler,                      // ADC1 Sequence 3
     0,                                      // Reserved
     0,                                      // Reserved
     IntDefaultHandler,                      // GPIO Port J
