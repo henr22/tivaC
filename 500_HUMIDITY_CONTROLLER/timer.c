@@ -33,6 +33,9 @@ void configureTimer(void)
     //    6. If interrupts are required, set the appropriate bits in the GPTM Interrupt Mask Register
 //    (GPTMIMR).
 
+    //To enable ADC samples with the timer
+    TIMER0_CTL_R |= (1 << 5);
+
     //    7. Set the TnEN bit in the GPTMCTL register to enable the timer and start counting.
     TIMER0_CTL_R |= (1 << 0);
     //    8. Poll the GPTMRIS register or wait for the interrupt to be generated (if enabled). In both cases,
