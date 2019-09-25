@@ -1,0 +1,5 @@
+MeisterTask
+https://www.meistertask.com/app/project/98sblGwb/sensor-de-humidade
+
+Code Composer Studio v9 for windows64bits
+https://software-dl.ti.com/ccs/esd/CCSv9/CCS_9_1_0/exports/CCS9.1.0.00010_win64.zip
