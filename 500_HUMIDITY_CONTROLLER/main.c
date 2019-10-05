@@ -1,20 +1,22 @@
-
-
 /**
  * main.c
  */
+
+//C libraries
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "inc/tm4c1230h6pm.h"
+//microcontroller libraries
+#include "inc/tm4c123gh6pm.h" //Registers definitions
 #include "inc/hw_memmap.h"
-#include "driverlib/uart.h"
 
+//Project libraries
 #include "led.h"
 #include "timer.h"
 #include "adc.h"
 #include "uart.h"
 #include "string.h"
+#include "general.h"
 
 void setup(void);
 
@@ -25,11 +27,9 @@ int main(void)
     setup();
     char buffer[5];
 
+    adcResult = ADC1_SSFIFO3_R;
     while(1)
     {
-
-        adcResult = ADC1_SSFIFO3_R;
-
         if (TIMER0_RIS_R & 0x00000001 == 1)
         {
             adcResult = ADC1_SSFIFO3_R;
@@ -57,7 +57,7 @@ void setup(void)
     configureLED(BLUE);
     configureTimer();
     configureAdc();
-    configureUart();
+    configureUart(0x1, PORTA);
 }
 
 
