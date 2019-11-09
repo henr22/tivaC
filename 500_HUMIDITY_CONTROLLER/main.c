@@ -1,8 +1,7 @@
-
-
 /**
  * main.c
  */
+
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -24,10 +23,22 @@ int main(void)
 {
     setup();
     char buffer[5];
+while(1)
+{
+if(TIMER0_RIS_R & 0x00000001 == 1)
+{
+    printString("Serial Available");
+    TIMER0_ICR_R |= (1 << 0);
+}
+   // if(serialAvailable())
+    //{
+        //printString("Serial Available");
+    //}
 
-    while(1)
+}
+
+    while(0)
     {
-
         adcResult = ADC1_SSFIFO3_R;
 
         if (TIMER0_RIS_R & 0x00000001 == 1)

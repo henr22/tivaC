@@ -18,18 +18,25 @@ void itoa(char* buffer, int n)
     int i = 0;
     char temp[11];
 
-    while (n > 0)
+    if(n == 0)
     {
-       temp[i] = n % 10 + 48; //Convert to ascii
-       n /= 10;
-       i++;
+        temp[i] = '0';
+        i++;
+    }
+    else
+    {
+        while (n > 0)
+        {
+           temp[i] = n % 10 + 48; //Convert to ascii
+           n /= 10;
+           i++;
+        }
     }
 
     temp[i] = 0;
 
     invertString(temp);
     strCopy(temp, buffer);
-
 }
 
 void invertString(char* a)

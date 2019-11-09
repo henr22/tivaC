@@ -12,5 +12,6 @@ extern void configureUart(void);
 extern void printChar(char c);
 extern void printString (char *s);
 extern char readChar (void);
+extern int serialAvailable(void);
 
 #endif /* UART_H_ */

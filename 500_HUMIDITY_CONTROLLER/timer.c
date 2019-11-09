@@ -29,7 +29,7 @@ void configureTimer(void)
     TIMER0_TAMR_R &= ~(1 << 4); // set TACDIR field to count down
 
     //    5. Load the start value into the GPTM Timer n Interval Load Register (GPTMTnILR).
-    TIMER0_TAILR_R = 0x00F42400; //16 000 000 This is value is choosen because we want 1 second and clock speed is 16MHz
+    TIMER0_TAILR_R = 0x00F42400; //16 000 000 This is value is chosen because we want 1 second and clock speed is 16MHz
     //    6. If interrupts are required, set the appropriate bits in the GPTM Interrupt Mask Register
 //    (GPTMIMR).
 

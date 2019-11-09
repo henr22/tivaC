@@ -14,8 +14,11 @@
 
 #include "uart.h"
 
-void configureUart(void)
+void configureUart()
 {
+    //uint32_t BRD;
+    //uint32_t FBRD;
+
     //    1. Enable the UART module using the RCGCUART register (see page 342).
         SYSCTL_RCGCUART_R |= (1 << 0); //Enable UART0
         while((SYSCTL_RCGCUART_R & (1 << 0)) != (1 << 0)); //Wait for clock being set
@@ -38,8 +41,11 @@ void configureUart(void)
         GPIO_PORTA_DEN_R = (1 << 1) | (1 << 0); // We need to set the pins are digital pins
 
         // Find the baudrate
-        // BRD = 16.000.000 / (16 * 9600) = 104.16666666
+
+        //BRD = 16.000.000 / (16 * 9600) = 104.16666666
+        //BRD = 16.000.000 / (16 * baudRate);
         // FBRD = 0.166666666 * 64 + 0.5
+        //FBRD = 0.166666666 * 64 + 0.5
 
     //    1. Disable the UART by clearing the UARTEN bit in the UARTCTL register.
         UART0_CTL_R &= ~(1 << 0);
@@ -60,17 +66,21 @@ void configureUart(void)
 
 char readChar (void)
 {
-    char c;
-    while ((UART0_FR_R & (1 << 4)) != 0);
-    c = UART0_DR_R & 0xFF;
+    //char c;
+    //while ((UART0_FR_R & (1 << 4)) != 0);
 
-    return c;
+    if (serialAvailable())
+    {
+        return UART0_DR_R & 0xFF;
+    }
+
+    return '\0';
 }
 
 void printChar(char c)
 {
-    while ((UART0_FR_R & (1 << 5)) != 0);
     UART0_DR_R = c;
+    while ((UART0_FR_R & (1 << 5)) != 0);
 }
 
 void printString (char *s)
@@ -80,5 +90,14 @@ void printString (char *s)
         printChar(*s);
         s++;
     }
+}
+
+int serialAvailable(void)
+{
+    if(UART0_FR_R & (1 << 4) == 0)
+    {
+        return 1;
+    }
+    return 0;
 }
 
