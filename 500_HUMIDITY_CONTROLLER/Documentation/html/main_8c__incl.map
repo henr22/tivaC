@@ -1,0 +1,12 @@
+<map id="src/app/main.c" name="src/app/main.c">
+<area shape="rect" id="node1" title="This software monitors the room temperature and humidity." alt="" coords="485,5,593,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,71,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="95,80,170,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="195,80,337,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="361,80,464,107"/>
+<area shape="rect" id="node6" href="$led_8h.html" title=" " alt="" coords="488,80,591,107"/>
+<area shape="rect" id="node7" href="$timer_8h.html" title=" " alt="" coords="615,80,730,107"/>
+<area shape="rect" id="node8" href="$adc_8h.html" title=" " alt="" coords="754,80,861,107"/>
+<area shape="rect" id="node9" href="$uart_8h.html" title=" " alt="" coords="885,80,993,107"/>
+<area shape="rect" id="node10" href="$string_8h.html" title=" " alt="" coords="1017,80,1136,107"/>
+</map>

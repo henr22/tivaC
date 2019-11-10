@@ -1,0 +1,4 @@
+<map id="printChar" name="printChar">
+<area shape="rect" id="node1" title="Sends one through UART." alt="" coords="135,5,209,32"/>
+<area shape="rect" id="node2" href="$uart_8h.html#a7a8fddcb8b43b4788fbb47bd733762c5" title="Sends an array of characters through UART." alt="" coords="5,5,87,32"/>
+</map>
