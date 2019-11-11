@@ -1,0 +1,7 @@
+1. Install Code Composer Studio, link below:
+https://software-dl.ti.com/ccs/esd/CCSv9/CCS_9_1_0/exports/CCS9.1.0.00010_win64.zip
+
+2. Create a first dummy project, and configure it as explained in the link below:
+How to add tivaware to a project? How to configure your first Project?
+https://www.instructables.com/id/Creating-a-new-Tiva-Project-in-Code-Composer-Studi/
+

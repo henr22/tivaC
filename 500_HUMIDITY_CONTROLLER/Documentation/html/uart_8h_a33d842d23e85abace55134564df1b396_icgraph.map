@@ -1,0 +1,4 @@
+<map id="serialAvailable" name="serialAvailable">
+<area shape="rect" id="node1" title="Checks if there is any data available in UART." alt="" coords="128,5,232,32"/>
+<area shape="rect" id="node2" href="$uart_8h.html#a46a3d41eb09af0e30ea2f291d8c612b2" title="Reads a character from UART." alt="" coords="5,5,80,32"/>
+</map>

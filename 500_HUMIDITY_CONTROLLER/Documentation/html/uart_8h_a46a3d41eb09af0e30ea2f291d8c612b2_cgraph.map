@@ -1,0 +1,4 @@
+<map id="readChar" name="readChar">
+<area shape="rect" id="node1" title="Reads a character from UART." alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node2" href="$uart_8c.html#a33d842d23e85abace55134564df1b396" title="Checks if there is any data available in UART." alt="" coords="128,5,232,32"/>
+</map>
