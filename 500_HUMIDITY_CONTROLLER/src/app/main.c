@@ -8,10 +8,11 @@
 /** @mainpage Description
  * Software to monitor temperature and humidity of a room
  * @section materials Bill of Materials
- * @subsection material_1 Microcontroller
- * Texas Instruments TM4C1230H6PM
- * @subsection material_2 Sensors
+ * TM4C1230H6PM
+ *
  * DHT11-Temperature-Sensor
+ *
+ * See documentation in the project folder for more information about materials
  */
 
 #include <stdint.h>
@@ -25,6 +26,7 @@
 #include "../drivers/adc.h"
 #include "../drivers/uart.h"
 #include "../drivers/string.h"
+#include "constants.h"
 
 void setup(void);
 
@@ -80,8 +82,7 @@ void setup(void)
     setbuiltinLed(RED);
     configureTimer();
     configureAdc();
-    configureUart();
+    //configureUart();
     setbuiltinLed(DARK);
 }
-
 
