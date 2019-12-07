@@ -5,12 +5,45 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "inc/hw_memmap.h"
-#include "inc/tm4c1230h6pm.h"
-#include "driverlib/uart.h"
+#include "inc/tm4c123gh6pm.h"
 
 #include "uart.h"
 
+<<<<<<< HEAD:500_HUMIDITY_CONTROLLER/uart.c
+/*
+ * uartEnable
+ * input: from 0x00 to 0x10000000 depending on which uart we want to enable from 0 to 7
+ * multiple bits probably will enable multiple UART Ports. Did not tested
+ */
+bool uartEnable(uint32_t uart)
+{
+    if (uart > 0x10000000)
+    {
+        return false;
+    }
+
+    SYSCTL_RCGCUART_R |= uart; //Enable correspondent uart
+
+    return true;
+}
+
+void uartPort(uint32_t port)
+{
+    SYSCTL_RCGCGPIO_R |= (1 << 0); // Clock to Port A
+    while((SYSCTL_RCGCGPIO_R & (1 << 0)) != (1 << 0));
+}
+
+/*
+ * Input information:
+ * uart2Enable: 0x00 to 0x1000 0000
+ *
+ */
+
+
+void configureUart(uint32_t uart2Enable, uint32_t port)
+{
+    uartEnable(uart2Enable);
+=======
 void configureUart()
 {
     //uint32_t BRD;
@@ -19,14 +52,14 @@ void configureUart()
     //    1. Enable the UART module using the RCGCUART register (see page 342).
         SYSCTL_RCGCUART_R |= (1 << 0); //Enable UART0
         while((SYSCTL_RCGCUART_R & (1 << 0)) != (1 << 0)); //Wait for clock being set
+>>>>>>> 08e3c9a03ea052d25e7c35bed6f1e5e3cbdc78ae:500_HUMIDITY_CONTROLLER/src/drivers/uart.c
     //    2. Enable the clock to the appropriate GPIO module via the RCGCGPIO register (see page 338).
     //    To find out which GPIO port to enable, refer to Table 23-5 on page 1344.
-        SYSCTL_RCGCGPIO_R |= (1 << 0); // Clock to Port A
-
-        while((SYSCTL_RCGCGPIO_R & (1 << 0)) != (1 << 0)); //Wait for clock being set
+    uartPort(port);
     //    3. Set the GPIO AFSEL bits for the appropriate pins (see page 668). To determine which GPIOs to
     //    configure, see Table 23-4 on page 1337.
-       GPIO_PORTA_AFSEL_R = (1 << 1) | (1 << 0); // Pins 17 and 18  corresponding to U0Rx and U0Tx
+
+    GPIO_PORTA_AFSEL_R = (1 << 1) | (1 << 0); // Pins 17 and 18  corresponding to U0Rx and U0Tx
 
     //    4. Configure the GPIO current level and/or slew rate as specified for the mode selected (see
     //    page 670 and page 678).

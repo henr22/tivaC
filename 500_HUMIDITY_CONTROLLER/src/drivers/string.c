@@ -7,7 +7,7 @@
  * This function handles until 10 digit numbers
  */
 #include <stdint.h>
-#include "inc/tm4c1230h6pm.h"
+#include "inc/tm4c123gh6pm.h"
 #include "string.h"
 
 void itoa(char* buffer, int n)

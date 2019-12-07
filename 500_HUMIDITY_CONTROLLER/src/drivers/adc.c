@@ -2,7 +2,7 @@
  * @file
  */
 #include <stdint.h>
-#include "inc/tm4c1230h6pm.h"
+#include "inc/tm4c123gh6pm.h"
 #include "adc.h"
 
 void configureAdc(void)

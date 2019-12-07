@@ -2,8 +2,12 @@
  * @file
  */
 #include <stdint.h>
+<<<<<<< HEAD:500_HUMIDITY_CONTROLLER/timer.c
+#include "inc/tm4c123gh6pm.h"
+=======
 #include <stdbool.h>
 #include "inc/tm4c1230h6pm.h"
+>>>>>>> 08e3c9a03ea052d25e7c35bed6f1e5e3cbdc78ae:500_HUMIDITY_CONTROLLER/src/drivers/timer.c
 #include "timer.h"
 
 void timerInit()
